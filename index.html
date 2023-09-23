@@ -1,9 +1,4 @@
-<!--
-Theme Name: Vibrant 
-Author URI: http://webthemez.com/
-Description: This theme is a best responsive web template. It would be great for a corporate websites, business websites, personal blog.
-License: Free to use for personal and commercial, but you need to place back link in the bottom of the template.
--->
+
 <!doctype html>
 <!--[if IE 7 ]>    <html lang="en-gb" class="isie ie7 oldie no-js"> <![endif]-->
 <!--[if IE 8 ]>    <html lang="en-gb" class="isie ie8 oldie no-js"> <![endif]-->
@@ -394,11 +389,11 @@ License: Free to use for personal and commercial, but you need to place back lin
     <div class="container">
       <div class="row">
         <div class="heading text-center"> 
-          <!-- Heading --> Contact Us
+          <!-- Heading --> <h1> Contact Us</h1>
         </div>
       </div>
       <div class="row mrgn30">
-        <form id="myForm" action="https://formspree.io/f/mzbljozr" method="POST">
+<form id="myForm" action="https://formspree.io/f/mzbljozr" method="POST" style="display: flex; justify-content: center; align-items: center; ">
   <div class="form-group">
     <label for="name">Name</label>
     <input type="text" id="name" name="name" class="form-control" required placeholder="Enter your name" style="width: 100%;">
@@ -435,7 +430,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const formData = new FormData(form);
 
     // Send a POST request to Formspree
-    fetch("https://formspree.io/f/mbjvyvrd", {
+    fetch("https://formspree.io/f/mzbljozr", {
       method: "POST",
       body: formData,
     })
