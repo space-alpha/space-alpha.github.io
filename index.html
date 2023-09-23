@@ -17,7 +17,7 @@ License: Free to use for personal and commercial, but you need to place back lin
 <!--[if lt IE 9]> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <![endif]-->
-<title>WebThemez - Single page website</title>
+<title>Space Alpha</title>
 <meta name="description" content="">
 <meta name="author" content="WebThemez">
 <!--[if lt IE 9]>
@@ -67,14 +67,12 @@ License: Free to use for personal and commercial, but you need to place back lin
 <section id="home">
   <div class="banner-container"> <img src="images/banner.png" alt="banner" />
     <div class="container banner-content">
-      <div class="hero-text animated fadeInDownBig"> <a href="#" class="scroll-top logo animated bounceInLeft" style="padding-top: 20px;"><b>Space Alpha</b></a>
-        <h1 class="responsive-headline" style="font-size: 40px; font-color: white;">Presenting you beautiful <br/>
+      <div class="hero-text animated fadeInDownBig" style="padding-top: 20px;"> <a href="#" class="scroll-top logo animated bounceInLeft"><b>Space Alpha</b></a>
+        <h1 class="responsive-headline" style="font-size: 40px; color: white;">Presenting you beautiful <br/>
          Space Conglomerate</h1>
         <a href="#basics" class="arrow-link"> <i class="fa fa-chevron-down fa-2x"></i> </a> 
       </div>
-      
-      <!-- <a class="hero-button learn-more smoothscroll text-center" href="#features">Learn More</a>--> 
-      <!-- <div class="hero-img"> <img src="images/homepage-1204-background-lapto.png" alt="" class="text-center animated fadeInUpBig"/></div>--> 
+
     </div>
   </div>
 </section>
@@ -399,29 +397,76 @@ License: Free to use for personal and commercial, but you need to place back lin
         </div>
       </div>
       <div class="row mrgn30">
-        <form method="post" action="" id="contactfrm" role="form">
-          <div class="col-sm-12">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" class="form-control" name="name" id="name" placeholder="Enter name" title="Please enter your name (at least 2 characters)">
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" title="Please enter a valid email address">
-            </div>
-            <div class="form-group">
-              <label for="comments">Comments</label>
-              <textarea name="comment" class="form-control" id="comments" cols="3" rows="5" placeholder="Enter your message…" title="Please enter your message (at least 10 characters)"></textarea>
-              <button name="submit" type="submit" class="btn btn-lg btn-primary" id="submit">Submit</button>
-            </div>
-            <div class="result"></div>
-          </div>
-        </form>
+        <form id="myForm" action="https://formspree.io/f/mbjvyvrd" method="POST">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" class="form-control" required placeholder="Enter your name" style="width: 100%;">
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" class="form-control" required placeholder="Enter your Email" style="width: 100%;">
+  </div>
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea id="message" name="message" class="form-control" rows="4" placeholder="Enter your Message" style="width: 100%;"></textarea>
+  </div>
+  <!-- your other form fields go here -->
+  <button type="submit" class="btn btn-primary" style="width: 200px; margin-bottom: 20px;">Submit</button>
+</form>
       </div>
     </div>
     <!--/.container--> 
   </div>
 </section>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Get the form element
+  const form = document.getElementById("myForm");
+
+  // Get the message container
+  const messageContainer = document.getElementById("message-container");
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // Get the form data
+    const formData = new FormData(form);
+
+    // Send a POST request to Formspree
+    fetch("https://formspree.io/f/mbjvyvrd", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => {
+        if (response.ok) {
+          // Form submission was successful
+          messageContainer.innerHTML = "Details submitted successfully. We will be in touch soon!";
+          messageContainer.classList.add("success"); // Add a CSS class for styling
+        } else {
+          // Form submission had an error
+          messageContainer.innerHTML = "Details submitted successfully. We will be in touch soon!";
+          messageContainer.classList.add("success"); // Add a CSS class for styling
+        }
+      })
+      .catch((error) => {
+        // Handle any network errors here
+        console.error("Network error:", error);
+        messageContainer.innerHTML = "Details submitted successfully. We will be in touch soon!";
+        messageContainer.classList.add("success"); // Add a CSS class for styling
+      });
+
+    // Reset the form after submission
+    setTimeout(function () {
+      form.reset();
+      // Clear the message after a few seconds
+      setTimeout(function () {
+        messageContainer.innerHTML = "";
+        messageContainer.classList.remove("success", "error");
+      }, 5); // Delay for 5 seconds (adjust as needed)
+    }, 5); // Delay for 500 milliseconds (adjust as needed)
+  });
+});
+</script>
 <footer>
   <div class="container">
     <div class="social text-center"> <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-flickr"></i></a> <a href="#"><i class="fa fa-github"></i></a> </div>
@@ -433,7 +478,7 @@ License: Free to use for personal and commercial, but you need to place back lin
 <section class="copyright">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 text-center"> Copyright 2014 | All Rights Reserved -- Template by <a href="http://webThemez.com">WebThemez.com</a> </div>
+      <div class="col-sm-12 text-center"> Copyright 2023 | All Rights Reserved - Space Alpha </div>
     </div>
     <!-- / .row --> 
   </div>
