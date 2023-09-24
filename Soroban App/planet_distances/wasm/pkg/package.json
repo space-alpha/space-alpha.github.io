@@ -1,0 +1,14 @@
+{
+  "name": "planet_distances",
+  "version": "0.1.0",
+  "files": [
+    "planet_distances_bg.wasm",
+    "planet_distances.js",
+    "planet_distances.d.ts"
+  ],
+  "module": "planet_distances.js",
+  "types": "planet_distances.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
