@@ -1,0 +1,10 @@
+[package]
+name = "planet_distances"
+version = "0.1.0"
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+dialoguer = "0.7"

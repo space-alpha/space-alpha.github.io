@@ -1,0 +1,34 @@
+---
+import init, { run_rust_code } from '/wasm/pkg/planet_distances.js';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Welcome to Astro.">
+    <main>
+        <h1>Welcome to <span class="text-gradient">Astro</span></h1>
+        <p class="instructions">
+            To get started, open the directory <code>src/pages</code> in your project.<br>
+            <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
+        </p>
+        <div id="output"></div>
+    </main>
+    <script type="module">
+        // Load and run your Rust code using WebAssembly
+        import init, { run_rust_code } from '/wasm/pkg/planet_distances.js';
+
+        async function runRustCode() {
+            await init(); // Initialize the WebAssembly module
+            const outputElement = document.getElementById('output');
+
+            // Call the Rust function and capture its output
+            const rustOutputPtr = run_rust_code();
+            const rustOutput = UTF8ToString(rustOutputPtr);
+
+            // Display the output in the HTML
+            outputElement.textContent = rustOutput;
+
+            // Free the memory allocated by Rust (optional)
+            _free(rustOutputPtr);
+        }
+
+        runRustCode(); // Run Rust code when the page
