@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NASA APOD Viewer</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h1 {
+            color: #0078d4;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: 350px; /* Adjust the height as needed */
+            margin-top: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>NASA Astronomy Picture of the Day (APOD)</h1>
+
+    <form action="/get_apod" method="post">
+        <label for="date">Enter Date (YYYY-MM-DD):</label>
+        <input type="text" id="date" name="date" placeholder="e.g., 2023-09-23">
+        <input type="submit" value="Get APOD">
+    </form>
+
+    <h2>APOD Image:</h2>
+    <img src="{{ apod_image_url }}" id="apod-image" alt="APOD Image">
+</body>
+</html>
